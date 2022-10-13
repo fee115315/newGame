@@ -5,6 +5,8 @@
 #include "ShotFall.h"
 #include "ShotFall.h"
 #include "Back.h"
+#include "Enemy.h"
+#include "EnemyBase.h"
 
 #include <cassert>
 
@@ -32,9 +34,16 @@ void SceneMain::init()
 {
 	//グラフィックのロード
 	m_hPlayerGraphic = LoadGraph("data/player.bmp");
+	//背景のロード
 	m_hbackGraphic = LoadGraph("data/ino.png");
 	m_back.setHandle(m_hbackGraphic);
 	//敵のロード
+	m_hEnemyGraphic = LoadGraph("data/ringo1.png");
+	m_enemy.setHandle(m_hEnemyGraphic);
+	//敵の弾のロード
+	m_hShotEnemyGraphic = LoadGraph("data/shot.bmp");
+	m_enemy.setShotHandle(m_hShotEnemyGraphic);
+	//弾のロード
 	m_hShotGraphic = LoadGraph("data/shot.bmp");
 	//サウンドのロード
 	LoadSoundMem("music/cursor7.mp3");
@@ -42,6 +51,7 @@ void SceneMain::init()
 	m_player.setHandle(m_hPlayerGraphic);
 	m_player.init();
 	m_player.setMain(this);
+	m_enemy.init();
 }
 
 // 終了処理
@@ -51,6 +61,8 @@ void SceneMain::end()
 	DeleteGraph(m_hPlayerGraphic);
 	DeleteGraph(m_hShotGraphic);
 	DeleteGraph(m_hbackGraphic);
+	DeleteGraph(m_hEnemyGraphic);
+	DeleteGraph(m_hShotEnemyGraphic);
 	//サウンドアンロード
 	DeleteSoundMem(m_hTestSound);
 	for (auto& pShot : m_pShotVt)
@@ -98,6 +110,7 @@ void SceneMain::update()
 		it++;
 	}
 	m_back.update();
+	m_enemy.update();
 }
 
 // 毎フレームの描画
@@ -105,6 +118,7 @@ void SceneMain::draw()
 {
 	m_back.draw();
 	m_player.draw();
+	m_enemy.draw();
 
 	for (auto& pShot : m_pShotVt)
 	{

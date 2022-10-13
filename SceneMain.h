@@ -3,6 +3,8 @@
 #include <vector>
 #include "player.h"
 #include "ShotBase.h"
+#include "EnemyBase.h"
+#include "Enemy.h"
 #include "Back.h"
 
 class SceneMain
@@ -28,7 +30,7 @@ public:
 
 private:
 
-	// プレイヤーのグラフィックハンドル
+	//グラフィックハンドル
 	int m_hPlayerGraphic;
 	int m_hShotGraphic;
 	int m_hbackGraphic;
@@ -38,6 +40,12 @@ private:
 	Player m_player;
 	// ショット
 	std::vector<ShotBase*> m_pShotVt;
+	//敵のハンドル
+	int m_hEnemyGraphic;
+	//敵の弾
+	int m_hShotEnemyGraphic;
+	//敵
+	Enemy m_enemy;
 
 	int m_hTestSound;
 };

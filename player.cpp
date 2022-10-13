@@ -32,6 +32,7 @@ void Player::init()
 	m_vec.x = 0.0f;
 	m_vec.y = 0.0f;
 	m_shotInterval = 0;
+	GetGraphSizeF(m_handle, &m_Graphsize.x, &m_Graphsize.y);
 }
 
 void Player::update()
@@ -74,39 +75,79 @@ void Player::update()
 	{
 		m_vec.y -= kAcc;
 		if (m_vec.y < -kSpeedMax)	m_vec.y = -kSpeedMax;
-		if (m_pos.y < 0)
-			m_pos.y = 0;
 	}
 	else if (padState & PAD_INPUT_DOWN)
 	{
 		m_vec.y += kAcc;
 		if (m_vec.y > kSpeedMax)	m_vec.y = kSpeedMax;
-		if (m_pos.y > Game::kScreenHeight - kGraphicSizeY)
-			m_pos.y = Game::kScreenHeight - kGraphicSizeY;
 	}
 	else
 	{
 		m_vec.y *= 0.9f;
 	}
+		if (m_pos.x + m_Graphsize.x > Game::kScreenWidth)
+		{
+			m_vec.x = 0;
+			m_pos.x = Game::kScreenWidth - m_Graphsize.x;
+		}
+		if (m_pos.y + m_Graphsize.y > Game::kScreenHeight)
+		{
+			m_vec.y = 0;
+			m_pos.y = Game::kScreenHeight - m_Graphsize.y;
+		}
+		if (m_pos.y < 0)
+		{
+			m_pos.y = 0;
+			m_vec.y = 0;
+		}
+		if (m_pos.x < 0)
+		{
+			m_pos.x = 0;
+			m_vec.x = 0;
+		}
+
 	if (padState & PAD_INPUT_LEFT)
 	{
 		m_vec.x -= kAcc;
 		if (m_vec.x < -kSpeedMax)	m_vec.x = -kSpeedMax;
-		if (m_pos.x < 0)
-			m_pos.x = 0;
 	}
 	else if (padState & PAD_INPUT_RIGHT)
 	{
 		m_vec.x += kAcc;
 		if (m_vec.x > kSpeedMax)	m_vec.x = kSpeedMax;
-		if (m_pos.x > Game::kScreenHeight - kGraphicSizeX)
-			m_pos.x = Game::kScreenHeight - kGraphicSizeX;
 	}
 	else
 	{
 		m_vec.x *= 0.9f;
 	}
+
+		if (m_pos.x + m_Graphsize.x > Game::kScreenWidth)
+		{
+			m_vec.x = 0;
+			m_pos.x = Game::kScreenWidth - m_Graphsize.x;
+		}
+		if (m_pos.y + m_Graphsize.y > Game::kScreenHeight)
+		{
+			m_vec.y = 0;
+			m_pos.y = Game::kScreenHeight - m_Graphsize.y;
+		}
+		if (m_pos.y < 0)
+		{
+			m_pos.y = 0;
+			m_vec.y = 0;
+		}
+		if (m_pos.x < 0)
+		{
+			m_pos.x = 0;
+			m_vec.x = 0;
+		}
+		
 	m_pos += m_vec;
+
+	
+	
+	
+
 }
 
 void Player::draw()

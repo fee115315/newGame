@@ -10,8 +10,6 @@ public:
 	Player();
 	virtual ~Player();
 
-	static constexpr int kGraphicSizeX = 40;
-	static constexpr int kGraphicSizeY = 28;
 	// グラフィックデータ設定
 	void setHandle(int handle) { m_handle = handle; }
 
@@ -40,5 +38,9 @@ private:
 	// 移動
 	Vec2 m_vec;
 
+	Vec2 m_Graphsize;
+
 	int m_shotInterval;
+
+	
 };
