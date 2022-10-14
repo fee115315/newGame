@@ -48,7 +48,7 @@ void Player::update()
 	{
 		if (padState & PAD_INPUT_1)
 		{
-			if (m_pMain->createShotNormal(getPos()))
+			if (m_pMain->createShotNormal(getPos(),1))
 			{
 				m_shotInterval = kShotInterval;
 			}

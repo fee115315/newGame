@@ -24,7 +24,7 @@ public:
 	void draw();
 
 	//íeÇÃê∂ê¨
-	bool createShotNormal(Vec2 pos);
+	bool createShotNormal(Vec2 pos,int vect);
 	bool createShotFall(Vec2 pos);
 	bool createShotBound(Vec2 pos);
 

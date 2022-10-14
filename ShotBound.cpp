@@ -33,35 +33,35 @@ void ShotBound::update()
 	if (!m_isExist)return;
 	m_pos += m_vec;
 
-	if (m_boundCount < kBoundMax)
-	{
-		//画面端での反射
-		if (m_pos.x < 0.0f)
-		{
-			m_pos.x = 0.0f;
-			m_vec.x *= -1.0f;
-			m_boundCount++;
-		}
-		if (m_pos.y < 0.0f)
-		{
-			m_pos.y = 0.0f;
-			m_vec.y *= -1.0f;
-			m_boundCount++;
-		}
-		if (m_pos.x > Game::kScreenWidth - kSizeX)
-		{
-			m_pos.x = Game::kScreenWidth - kSizeX;
-			m_vec.x *= -1.0f;
-			m_boundCount++;
-		}
-		if (m_pos.y > Game::kScreenHeight - kSizeX)
-		{
-			m_pos.y = Game::kScreenHeight - kSizeX;
-			m_vec.y *= -1.0f;
-			m_boundCount++;
-		}
-	}
-	else
+	//if (m_boundCount < kBoundMax)
+	//{
+	//	//画面端での反射
+	//	if (m_pos.x < 0.0f)
+	//	{
+	//		m_pos.x = 0.0f;
+	//		m_vec.x *= -1.0f;
+	//		m_boundCount++;
+	//	}
+	//	if (m_pos.y < 0.0f)
+	//	{
+	//		m_pos.y = 0.0f;
+	//		m_vec.y *= -1.0f;
+	//		m_boundCount++;
+	//	}
+	//	if (m_pos.x > Game::kScreenWidth - kSizeX)
+	//	{
+	//		m_pos.x = Game::kScreenWidth - kSizeX;
+	//		m_vec.x *= -1.0f;
+	//		m_boundCount++;
+	//	}
+	//	if (m_pos.y > Game::kScreenHeight - kSizeX)
+	//	{
+	//		m_pos.y = Game::kScreenHeight - kSizeX;
+	//		m_vec.y *= -1.0f;
+	//		m_boundCount++;
+	//	}
+	//}
+	/*else*/
 	{
 		//画面外にいったショットの終了処理
 		if (m_pos.x < (0 - kSizeX))

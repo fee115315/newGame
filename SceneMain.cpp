@@ -38,7 +38,7 @@ void SceneMain::init()
 	m_hbackGraphic = LoadGraph("data/ino.png");
 	m_back.setHandle(m_hbackGraphic);
 	//“G‚Ìƒ[ƒh
-	m_hEnemyGraphic = LoadGraph("data/ringo1.png");
+	m_hEnemyGraphic = LoadGraph("data/ana.png");
 	m_enemy.setHandle(m_hEnemyGraphic);
 	//“G‚Ì’e‚Ìƒ[ƒh
 	m_hShotEnemyGraphic = LoadGraph("data/shot.bmp");
@@ -51,7 +51,9 @@ void SceneMain::init()
 	m_player.setHandle(m_hPlayerGraphic);
 	m_player.init();
 	m_player.setMain(this);
+	m_enemy.setHandle(m_hEnemyGraphic);
 	m_enemy.init();
+	m_enemy.setMain(this);
 }
 
 // I—¹ˆ—
@@ -85,6 +87,7 @@ void SceneMain::update()
 
 	
 	m_player.update();
+	m_enemy.update();
 
 	std::vector<ShotBase*>::iterator it = m_pShotVt.begin();
 	while (it != m_pShotVt.end())
@@ -110,7 +113,7 @@ void SceneMain::update()
 		it++;
 	}
 	m_back.update();
-	m_enemy.update();
+	
 }
 
 // –ˆƒtƒŒ[ƒ€‚Ì•`‰æ
@@ -130,11 +133,11 @@ void SceneMain::draw()
 	DrawFormatString(0, 0, GetColor(255, 255, 255), "’e‚Ì”:%d", m_pShotVt.size());
 }
 
-bool SceneMain::createShotNormal(Vec2 pos)
+bool SceneMain::createShotNormal(Vec2 pos,int vect)
 {
 	ShotNormal* pShot = new ShotNormal;
 	pShot->setHandle(m_hShotGraphic);
-	pShot->start(pos);
+	pShot->start(pos,vect);
 	m_pShotVt.push_back(pShot);
 
 	return true;

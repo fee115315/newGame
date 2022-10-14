@@ -2,8 +2,14 @@
 
 #include "Vec2.h"
 
+class SceneMain;
+
 class EnemyBase
 {
+public:
+	// 敵グラフィックサイズ
+	static constexpr int kEnemyGraphicSizeX = 64;
+	static constexpr int kEnemyGraphicSizeY = 80;
 public:
 	EnemyBase();
 	virtual ~EnemyBase();
@@ -18,8 +24,11 @@ public:
 	virtual void draw();
 	//存在するか
 	bool isExist() const { return m_isExist; }
+	//SceneMainクラスのポインタ設定
+	void setMain(SceneMain* pMain) { m_pMain = pMain; }
+	// 情報の取得
+	Vec2 getPos() const { return m_pos; }
 
-	
 protected:
 	// グラフィックハンドル
 	int m_handle;
@@ -29,7 +38,12 @@ protected:
 	Vec2	m_pos;
 	// 移動
 	Vec2	m_vec;
+	//SceneMainのポインタ
+	SceneMain* m_pMain;
 	//存在するか
 	bool    m_isExist;
+	//次弾の間隔
+	int m_shotInterval;
+	int m_waitFrame;
 };
 

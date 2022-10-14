@@ -6,11 +6,11 @@ namespace
 	constexpr float kShotSpeed = 8.0f;
 }
 
-void ShotNormal::start(Vec2 pos)
+void ShotNormal::start(Vec2 pos,int vect)
 {
 	ShotBase::start(pos);
 
-	m_vec.x = kShotSpeed;
+	m_vec.x = kShotSpeed * vect;
 	m_vec.y = 0.0f;
 }
 
