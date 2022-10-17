@@ -19,7 +19,7 @@ namespace
 void Enemy::init()
 {
 	//敵の初期化
-	m_pos.x = 500;			//敵のx座標
+	m_pos.x = 560;			//敵のx座標
 	m_pos.y = 200;				//敵のy座標
 
 	m_vec.x = kEnemySpeedX;		//敵のx座標の移動の大きさ
@@ -42,6 +42,7 @@ void Enemy::update()
 
 	// パッド(もしくはキーボード)からの入力を取得する
 	int padState = GetJoypadInputState(DX_INPUT_KEY_PAD1);
+	
 
 	//ショットを撃つ処理
 	m_shotInterval--;
@@ -63,16 +64,16 @@ void Enemy::update()
 				m_shotInterval = kShotInterval;
 			}
 		}
-		/*else
+		else
 		{
 			if (m_pMain->createShotFall(getPos()))
 			{
 				m_shotInterval = kShotInterval;
 			}
-		}*/
+		}
 	}
 
-	if (m_waitFrame > 0)
+	if (m_waitFrame > 1)
 	{
 		m_waitFrame--;
 		return;
@@ -81,12 +82,12 @@ void Enemy::update()
 
 	if (m_pos.x < 0)
 	{
-		m_vec.x *= -1;
+		m_vec.x *= -1.3;
 		m_waitFrame = kMoveTime;
 	}
 	if (m_pos.x > Game::kScreenWidth - kEnemyGraphicSizeX)
 	{
-		m_vec.x *= -1;
+		m_vec.x *= -1.3;
 		m_waitFrame = kMoveTime;
 	}
 
@@ -113,8 +114,7 @@ void Enemy::update()
 	//移動の実行
 	m_pos += m_vec;
 
-	if (m_pos.x < Game::kScreenWidth / 0.1)
-	
+	if (m_pos.x < Game::kScreenWidth / 1)
 
 	//画面内に入ったらtrue
 	if (m_pos.y > 0 || m_pos.y < Game::kScreenHeight ||

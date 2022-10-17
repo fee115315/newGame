@@ -48,21 +48,7 @@ void Player::update()
 	{
 		if (padState & PAD_INPUT_1)
 		{
-			if (m_pMain->createShotNormal(getPos(),1))
-			{
-				m_shotInterval = kShotInterval;
-			}
-		}
-		if (padState & PAD_INPUT_2)
-		{
-			if (m_pMain->createShotBound(getPos()))
-			{
-				m_shotInterval = kShotInterval;
-			}
-		}
-		if (padState & PAD_INPUT_3)
-		{
-			if (m_pMain->createShotFall(getPos()))
+			if (m_pMain->createShotP(getPos()))
 			{
 				m_shotInterval = kShotInterval;
 			}
@@ -70,7 +56,7 @@ void Player::update()
 	}
 
 	
-
+	//ƒLƒƒƒ‰‚ÌˆÚ“®
 	if (padState & PAD_INPUT_UP)
 	{
 		m_vec.y -= kAcc;

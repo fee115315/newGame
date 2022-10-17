@@ -16,8 +16,10 @@ public:
 	virtual void update();
 	// •\¦
 	virtual void draw();
+	// î•ñ‚Ìæ“¾
+	Vec2 getPos() const { return m_pos; }
 
-	//‘¶İ‚é‚·‚é‚©
+	//‘¶İ‚·‚é‚©
 	bool isExist() const { return m_isExist; }
 
 //Œp³æ‚©‚ç‚àg‚¦‚é‚æ‚¤‚É‚È‚é

@@ -27,6 +27,9 @@ public:
 	bool createShotNormal(Vec2 pos,int vect);
 	bool createShotFall(Vec2 pos);
 	bool createShotBound(Vec2 pos);
+	bool createShotP(Vec2 pos);
+	// “–‚½‚è”»’è
+	bool Collision_Detection();
 
 private:
 

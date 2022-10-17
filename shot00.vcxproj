@@ -149,6 +149,7 @@
     <ClCompile Include="ShotNormal.cpp" />
     <ClCompile Include="ShotFall.cpp" />
     <ClCompile Include="ShotBound.cpp" />
+    <ClCompile Include="ShotP.cpp" />
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +163,7 @@
     <ClInclude Include="ShotNormal.h" />
     <ClInclude Include="ShotFall.h" />
     <ClInclude Include="ShotBound.h" />
+    <ClInclude Include="ShotP.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

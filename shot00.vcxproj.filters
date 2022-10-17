@@ -66,6 +66,9 @@
     <ClCompile Include="Vec2.cpp">
       <Filter>ソース ファイル\Main</Filter>
     </ClCompile>
+    <ClCompile Include="ShotP.cpp">
+      <Filter>ソース ファイル\Shot</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShotBase.h">
@@ -100,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="Vec2.h">
       <Filter>ヘッダー ファイル\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ShotP.h">
+      <Filter>ヘッダー ファイル\Shot</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
 #include "ShotBound.h"
 #include "ShotNormal.h"
 #include "ShotFall.h"
-#include "ShotFall.h"
+#include "ShotP.h"
 #include "Back.h"
 #include "Enemy.h"
 #include "EnemyBase.h"
@@ -15,6 +15,12 @@ namespace
 {
 	//ショットの発射間隔
 	constexpr int kShotInterval = 16;
+	// プレイヤーのサイズ
+	constexpr int kPlayerGraphicSizeX = 32;
+	constexpr int kPlayerGraphicSizeY = 32;
+	// ショットのサイズ
+	constexpr int kShotGraphicSizeX = 16.0f;
+	constexpr int kShotGraphicSizeY = 16.0f;
 }
 
 SceneMain::SceneMain()
@@ -79,6 +85,10 @@ void SceneMain::end()
 // 毎フレームの処理
 void SceneMain::update()
 {
+	if (Collision_Detection())
+	{
+		DxLib_End();
+	}
 	int padstate = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (padstate & PAD_INPUT_1)
 	{
@@ -161,4 +171,61 @@ bool SceneMain::createShotBound(Vec2 pos)
 	m_pShotVt.push_back(pShot);
 
 	return true;
+}
+
+bool SceneMain::createShotP(Vec2 pos)
+{
+	ShotP* pShot = new ShotP;
+	pShot->setHandle(m_hShotGraphic);
+	pShot->start(pos);
+	m_pShotVt.push_back(pShot);
+
+	return true;
+}
+
+bool SceneMain::Collision_Detection()
+{
+	m_player.getPos();
+	m_enemy.getPos();
+
+	std::vector<ShotBase*>::iterator it = m_pShotVt.begin();
+	while (it != m_pShotVt.end())
+	{
+		auto& pShot = (*it);
+		assert(pShot);
+		pShot->getPos();
+
+		float shotLeft = pShot->getPos().x;
+		float shotRight = pShot->getPos().x + kShotGraphicSizeX;
+		float shotTop = pShot->getPos().y;
+		float shotBottom = pShot->getPos().y + kShotGraphicSizeY;
+
+		float playerLeft = m_player.getPos().x + 10;
+		float playerRight = m_player.getPos().x + kPlayerGraphicSizeX - 10;
+		float playerTop = m_player.getPos().y + 10;
+		float playerBottom = m_player.getPos().y + kPlayerGraphicSizeY - 10;
+
+		if (playerLeft > shotRight)
+		{
+			it++;
+			continue;
+		}
+		if (playerRight < shotLeft)
+		{
+			it++;
+			continue;
+		}
+		if (playerTop > shotBottom)
+		{
+			it++;
+			continue;
+		}
+		if (playerBottom < shotTop)
+		{
+			it++;
+			continue;
+		}
+		return true;
+	}
+	return false;
 }
