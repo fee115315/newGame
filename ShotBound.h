@@ -7,7 +7,7 @@ class ShotBound : public ShotBase
 public:
 	ShotBound()
 	{
-		m_boundCount = 0;
+		
 	}
 	virtual ~ShotBound()
 	{
@@ -19,6 +19,4 @@ public:
 	virtual void update();
 
 private:
-	//’µ‚Ë•Ô‚Á‚½‰ñ”
-	int m_boundCount;
 };

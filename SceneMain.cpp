@@ -85,10 +85,10 @@ void SceneMain::end()
 // –ˆƒtƒŒ[ƒ€‚Ìˆ—
 void SceneMain::update()
 {
-	if (Collision_Detection())
+	/*if (Collision_Detection())
 	{
 		DxLib_End();
-	}
+	}*/
 	int padstate = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (padstate & PAD_INPUT_1)
 	{
@@ -153,11 +153,11 @@ bool SceneMain::createShotNormal(Vec2 pos,int vect)
 	return true;
 }
 
-bool SceneMain::createShotFall(Vec2 pos)
+bool SceneMain::createShotFall(Vec2 pos, int vect)
 {
 	ShotFall* pShot = new ShotFall;
 	pShot->setHandle(m_hShotGraphic);
-	pShot->start(pos);
+	pShot->start(pos,vect);
 	m_pShotVt.push_back(pShot);
 
 	return true;

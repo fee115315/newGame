@@ -3,7 +3,7 @@
 #include "game.h"
 #include <cassert>
 #include "SceneMain.h"
-//a
+
 
 namespace
 {
@@ -19,13 +19,13 @@ namespace
 void Enemy::init()
 {
 	//ìGÇÃèâä˙âª
-	m_pos.x = 560;			//ìGÇÃxç¿ïW
-	m_pos.y = 200;				//ìGÇÃyç¿ïW
+	m_pos.x = 500;			//ìGÇÃxç¿ïW
+	m_pos.y = 150;				//ìGÇÃyç¿ïW
 
-	m_vec.x = kEnemySpeedX;		//ìGÇÃxç¿ïWÇÃà⁄ìÆÇÃëÂÇ´Ç≥
+	m_vec.x = kEnemySpeedX;		//ìGÇÃxç¿ïWÇÃà⁄ìÆÇÃëÂÇ´Ç≥ 
 	m_vec.y = kEnemySpeedY;		//ìGÇÃyç¿ïWÇÃà⁄ìÆÇÃëÂÇ´Ç≥
 
-	m_inCount = 20;			//âΩïbë“Ç¬Ç©(60Ç≈1ïbë“Ç¬)
+	m_inCount = 40;			//âΩïbë“Ç¬Ç©(60Ç≈1ïbë“Ç¬)
 
 	m_isExist = false;			//ìGÇ™ë∂ç›ÇµÇƒÇ¢ÇÈÇ©
 
@@ -66,7 +66,7 @@ void Enemy::update()
 		}
 		else
 		{
-			if (m_pMain->createShotFall(getPos()))
+			if (m_pMain->createShotFall(getPos(),-1))
 			{
 				m_shotInterval = kShotInterval;
 			}
@@ -82,16 +82,16 @@ void Enemy::update()
 
 	if (m_pos.x < 0)
 	{
-		m_vec.x *= -1.3;
+		m_vec.x *= -2;
 		m_waitFrame = kMoveTime;
 	}
 	if (m_pos.x > Game::kScreenWidth - kEnemyGraphicSizeX)
 	{
-		m_vec.x *= -1.3;
+		m_vec.x *= -2;
 		m_waitFrame = kMoveTime;
 	}
 
-	if (randMove > 50)
+	/*if (randMove > 50)
 	{
 
 	}
@@ -99,35 +99,70 @@ void Enemy::update()
 	else if (randMove > 20)
 	{
 
-	}
+	}*/
 
 	m_pos.x += m_vec.x;
 
 
 	//éwíËêîïbë“Ç¬
-	if (m_inCount > 0)
+	/*if (m_inCount > 0)
 	{
 		m_inCount--;
 		return;
-	}
+	}*/
 
 	//à⁄ìÆÇÃé¿çs
 	m_pos += m_vec;
+	if (m_pos.x < 0)
+	{
+		m_vec.x *= -1;
+	}
+	if (m_pos.x > Game::kScreenWidth - kEnemyGraphicSizeX)
+	{
+		m_pos.x = Game::kScreenWidth - kEnemyGraphicSizeX
+			;
+		m_vec.x *= -1.2;
+	}
+	if (m_pos.y < 0)
+	{
+		m_vec.y *= -1;
+		
+	}
+	if (m_pos.y > Game::kScreenHeight - kEnemyGraphicSizeY)
+	{
+		m_pos.y = Game::kScreenHeight - kEnemyGraphicSizeY;
+		m_vec.y *= -1;
 
-	if (m_pos.x < Game::kScreenWidth / 1)
+	}
+
+	m_basePos += m_vec;
+	m_sinRate += 0.08f;
+
+	m_pos = m_basePos;
+	m_pos.y += sinf(m_sinRate) * 100.0f;
+
+	if (m_pos.x < Game::kScreenWidth / 1);
 
 	//âÊñ ì‡Ç…ì¸Ç¡ÇΩÇÁtrue
-	if (m_pos.y > 0 || m_pos.y < Game::kScreenHeight ||
+	if (m_pos.y+200 > 0 || m_pos.y < Game::kScreenHeight ||
 		m_pos.x > 0 || m_pos.x < Game::kScreenWidth)
 	{
 		m_isExist = true;
 	}
 	//âÊñ äOÇ…èoÇΩÇÁfalse
-	if (m_pos.y < 0 || m_pos.y > Game::kScreenHeight ||
+	if (m_pos.y+200 < 0 || m_pos.y > Game::kScreenHeight ||
 		m_pos.x < 0 || m_pos.x > Game::kScreenWidth)
 	{
 		m_isExist = false;
 	}
+}
+
+void Enemy::draw()
+{
+	//falseÇ»ÇÁé¿çsÇµÇ»Ç¢
+	if (!m_isExist)return;
+	//ï\é¶
+	DrawGraphF(m_pos.x, m_pos.y+200, m_handle, true);
 }
 
 

@@ -19,6 +19,9 @@ public:
 	// î•ñ‚Ìæ“¾
 	Vec2 getPos() const { return m_pos; }
 
+	void setPlayerShot(bool isPlayer) {m_isPlayer = isPlayer;}	//Œ‚‚Á‚Ä‚¢‚é‚Ì‚ª“G‚©–¡•û‚©
+	bool getPlayerShot() const {return m_isPlayer; }
+
 	//‘¶İ‚·‚é‚©
 	bool isExist() const { return m_isExist; }
 
@@ -32,4 +35,6 @@ protected:
 	Vec2	m_vec;
 	//‘¶İ‚·‚é‚©
 	bool    m_isExist;
+
+	bool m_isPlayer;
 };

@@ -1,5 +1,6 @@
 #include "ShotP.h"
 #include "game.h"
+#include "DxLib.h"
 
 void ShotP::start(Vec2 pos)
 {
@@ -18,4 +19,10 @@ void ShotP::update()
 	{
 		m_isExist = false;
 	}
+}
+
+void ShotP::draw()
+{
+	if (!m_isExist)return;
+	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
 }

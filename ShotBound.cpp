@@ -25,7 +25,7 @@ void ShotBound::start(Vec2 pos)
 	m_vec.y = sinf(rad);
 	m_vec *= kShotSpeed;
 
-	m_boundCount = 0;
+	
 }
 
 void ShotBound::update()

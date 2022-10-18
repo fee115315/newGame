@@ -10,11 +10,11 @@ namespace
 	constexpr float kGravity = 0.4f;
 }
 
-void ShotFall::start(Vec2 pos)
+void ShotFall::start(Vec2 pos,int vect)
 {
 	ShotBase::start(pos);
 
-	m_vec.x = kShotSpeedX;
+	m_vec.x = kShotSpeedX*vect;
 	m_vec.y = kShotSpeedY;
 }
 

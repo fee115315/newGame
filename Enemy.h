@@ -19,8 +19,11 @@ public:
 	virtual void update();
 	//“G‚Ì’e‚Ìƒnƒ“ƒhƒ‹‚Ìİ’è
 	void setShotHandle(int handle) { m_shotHandle = handle; }
+	void draw();
 
 private:
 	//’e‚Ìƒnƒ“ƒhƒ‹
 	int m_shotHandle;
+	Vec2 m_basePos;
+	float m_sinRate;
 };

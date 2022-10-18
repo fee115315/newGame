@@ -25,7 +25,7 @@ public:
 
 	//’e‚Ì¶¬
 	bool createShotNormal(Vec2 pos,int vect);
-	bool createShotFall(Vec2 pos);
+	bool createShotFall(Vec2 pos, int vect);
 	bool createShotBound(Vec2 pos);
 	bool createShotP(Vec2 pos);
 	// “–‚½‚è”»’è
