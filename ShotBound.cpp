@@ -14,7 +14,7 @@ namespace
 	constexpr int kSizeY = 16;
 }
 
-void ShotBound::start(Vec2 pos)
+void ShotBound::start(Vec2 pos,int vect)
 {
 	ShotBase::start(pos);
 
@@ -33,6 +33,8 @@ void ShotBound::update()
 	if (!m_isExist)return;
 	m_pos += m_vec;
 
+	///壁に当たると跳ね返るコード、実装するとゲームとして難しいため物足りない人向け
+	//
 	//if (m_boundCount < kBoundMax)
 	//{
 	//	//画面端での反射
@@ -61,7 +63,9 @@ void ShotBound::update()
 	//		m_boundCount++;
 	//	}
 	//}
-	/*else*/
+	//else
+	///////////////////////////////////////////////
+
 	{
 		//画面外にいったショットの終了処理
 		if (m_pos.x < (0 - kSizeX))

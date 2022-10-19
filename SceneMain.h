@@ -5,6 +5,7 @@
 #include "ShotBase.h"
 #include "EnemyBase.h"
 #include "Enemy.h"
+#include "Enemy_2.h"
 #include "Back.h"
 
 class SceneMain
@@ -26,10 +27,12 @@ public:
 	//’e‚Ì¶¬
 	bool createShotNormal(Vec2 pos,int vect);
 	bool createShotFall(Vec2 pos, int vect);
-	bool createShotBound(Vec2 pos);
+	bool createShotBound(Vec2 pos, int vect);
 	bool createShotP(Vec2 pos);
 	// “–‚½‚è”»’è
-	bool Collision_Detection();
+	virtual bool Col_Shot();
+	virtual bool Col_Enemy();
+	virtual bool Col_Enemy2();
 
 private:
 
@@ -45,10 +48,22 @@ private:
 	std::vector<ShotBase*> m_pShotVt;
 	//“G‚Ìƒnƒ“ƒhƒ‹
 	int m_hEnemyGraphic;
+	//“G‚Ìƒnƒ“ƒhƒ‹2
+	int m_hEnemyGraphic2;
 	//“G‚Ì’e
 	int m_hShotEnemyGraphic;
+	//“G‚Ì’e2
+	int m_hShotEnemyGraphic2;
+	//player‚Ìƒ‰ƒCƒt
+	int m_life;
+	//–³“G”»’è
+	int m_hitInvi;   
 	//“G
 	Enemy m_enemy;
+	//“G2
+	Enemy_2 m_enemy2;
 
 	int m_hTestSound;
+
+	bool m_isEnd;
 };

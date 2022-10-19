@@ -2,14 +2,14 @@
 
 #include "EnemyBase.h"
 
-class Enemy : public EnemyBase
+class Enemy_2 : public EnemyBase
 {
 public:
-	Enemy()
+	Enemy_2()
 	{
 
 	}
-	virtual ~Enemy()
+	virtual ~Enemy_2()
 	{
 
 	}
@@ -25,5 +25,6 @@ private:
 	//’e‚Ìƒnƒ“ƒhƒ‹
 	int m_shotHandle;
 	Vec2 m_basePos;
+	float m_sinRate;
 	Vec2 m_Graphsize;
 };

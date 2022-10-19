@@ -28,6 +28,8 @@ public:
 	void setMain(SceneMain* pMain) { m_pMain = pMain; }
 	// 情報の取得
 	Vec2 getPos() const { return m_pos; }
+	//死亡設定
+	void setDead(bool isDead) { m_isDead = isDead; }
 
 protected:
 	// グラフィックハンドル
@@ -45,5 +47,7 @@ protected:
 	//次弾の間隔
 	int m_shotInterval;
 	int m_waitFrame;
+	//死亡判定
+	bool m_isDead;
 };
 

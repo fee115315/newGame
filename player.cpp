@@ -27,11 +27,11 @@ Player::~Player()
 
 void Player::init()
 {
-	m_pos.x = 100.0f;
-	m_pos.y = 100.0f;
+	m_pos.x = Game::kScreenWidth /6 - kPlayerGraphicSizeX/6 ;
+	m_pos.y = Game::kScreenHeight - kPlayerGraphicSizeY - 250;
 	m_vec.x = 0.0f;
 	m_vec.y = 0.0f;
-	m_shotInterval = 0;
+	m_shotInterval = 8;
 	GetGraphSizeF(m_handle, &m_Graphsize.x, &m_Graphsize.y);
 }
 

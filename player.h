@@ -9,6 +9,10 @@ class Player
 public:
 	Player();
 	virtual ~Player();
+
+	static constexpr int kPlayerGraphicSizeX = 32;
+	static constexpr int kPlayerGraphicSizeY = 32;
+
 	// グラフィックデータ設定
 	void setHandle(int handle) { m_handle = handle; }
 

@@ -1,4 +1,4 @@
-#include "Enemy.h"
+#include "Enemy_2.h"
 #include "DxLib.h"
 #include "game.h"
 #include <cassert>
@@ -8,38 +8,37 @@
 namespace
 {
 	//キャラの速度
-	constexpr float kSpeedX = 2.1f;
+	constexpr float kSpeedX = 0.7f;
 	//ショットの発射間隔
-	constexpr float kShotInterval = 8.0f;
+	constexpr float kShotInterval = 10.0f;
 	//動く間隔
-	constexpr int kMoveTime = 50;
+	constexpr int kMoveTime = 180;
 }
 
-void Enemy::init()
+void Enemy_2::init()
 {
 	//敵の初期化
-	m_pos.x = 570;			//敵のx座標
-	m_pos.y = 20;				//敵のy座標
+	m_pos.x = 550;			//敵のx座標
+	m_pos.y = 124;				//敵のy座標
 
 	m_vec.x = kSpeedX;		//敵のx座標の移動の大きさ 
 
-	m_inCount = 30;			//何秒待つか(60で1秒待つ)
+	m_inCount = 40;			//何秒待つか(60で1秒待つ)
 
 	m_isExist = false;			//敵が存在しているか
 
-	m_shotInterval = 160;     //弾を打つまでの間隔
+	m_shotInterval = 50;        //弾を打つまでの間隔
 
-	m_waitFrame = kMoveTime;
 }
 
-void Enemy::update()
+void Enemy_2::update()
 {
 
 	int randShot = GetRand(99);
 
 	// パッド(もしくはキーボード)からの入力を取得する
 	int padState = GetJoypadInputState(DX_INPUT_KEY_PAD1);
-	
+
 
 	//ショットを撃つ処理
 	m_shotInterval--;
@@ -47,17 +46,20 @@ void Enemy::update()
 
 	if (m_shotInterval <= 0)
 	{
-		if (m_pMain->createShotFall(getPos(),-1))
+		if (randShot > 50)
 		{
-			m_shotInterval = kShotInterval;
+			if (m_pMain->createShotNormal(getPos(), -1))
+			{
+				m_shotInterval = kShotInterval;
+			}
 		}
-	}
-
-	//左右に当たると一定時間動きが止まる
-	if (m_waitFrame > 1)
-	{
-		m_waitFrame--;
-		return;
+		else if (randShot > 30)
+		{
+			if (m_pMain->createShotBound(getPos(),-1))
+			{
+				m_shotInterval = kShotInterval;
+			}
+		}
 	}
 
 	//左右の端に付くとまた動き出す
@@ -82,7 +84,7 @@ void Enemy::update()
 		return;
 	}
 
-	//左右移動
+	//sin移動の実行
 	if (m_pos.x + m_Graphsize.x > Game::kScreenWidth)
 	{
 		m_vec.x = 0;
@@ -104,6 +106,10 @@ void Enemy::update()
 		m_vec.y = 0;
 	}
 
+	m_sinRate += 0.07f;
+
+	m_pos.y += sinf(m_sinRate) * 10.0f;
+
 	m_pos += m_vec;
 
 
@@ -121,12 +127,11 @@ void Enemy::update()
 	}
 }
 
-void Enemy::draw()
+void Enemy_2::draw()
 {
 	//falseなら実行しない
 	if (!m_isExist)return;
 	//表示
 	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
 }
-
 

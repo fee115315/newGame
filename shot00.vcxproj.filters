@@ -69,6 +69,9 @@
     <ClCompile Include="ShotP.cpp">
       <Filter>ソース ファイル\Shot</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_2.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShotBase.h">
@@ -106,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="ShotP.h">
       <Filter>ヘッダー ファイル\Shot</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_2.h">
+      <Filter>ヘッダー ファイル\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
