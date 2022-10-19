@@ -9,6 +9,9 @@
 #include "Enemy_2.h"
 #include "EnemyBase.h"
 
+#include "Title.h"
+#include "End.h"
+
 #include <cassert>
 
 
@@ -103,9 +106,13 @@ void SceneMain::end()
 }
 
 // 毎フレームの処理
-void SceneMain::update()
+TitleBase* SceneMain::update()
 {
 	if (Col_Shot())
+	{
+		DxLib_End();
+	}
+	if (Col_ShotE())
 	{
 		DxLib_End();
 	}
@@ -127,6 +134,7 @@ void SceneMain::update()
 	m_player.update();
 	m_enemy.update();
 	m_enemy2.update();
+	m_back.update();
 
 	std::vector<ShotBase*>::iterator it = m_pShotVt.begin();
 	while (it != m_pShotVt.end())
@@ -151,8 +159,8 @@ void SceneMain::update()
 		}
 		it++;
 	}
-	m_back.update();
 	
+	return this;
 }
 
 // 毎フレームの描画
@@ -258,6 +266,54 @@ bool SceneMain::Col_Shot()
 	}
 	return false;
 }
+
+bool SceneMain::Col_ShotE()
+{
+	m_enemy.getPos();
+
+
+	std::vector<ShotBase*>::iterator it = m_pShotVt.begin();
+	while (it != m_pShotVt.end())
+	{
+		auto& pShot = (*it);
+		assert(pShot);
+		pShot->getPos();
+
+		float shotLeft = pShot->getPos().x;
+		float shotRight = pShot->getPos().x + kShotGraphicSizeX;
+		float shotTop = pShot->getPos().y;
+		float shotBottom = pShot->getPos().y + kShotGraphicSizeY;
+
+		float playerLeft = m_enemy.getPos().x + 10;
+		float playerRight = m_enemy.getPos().x + kPlayerGraphicSizeX - 10;
+		float playerTop = m_enemy.getPos().y + 10;
+		float playerBottom = m_enemy.getPos().y + kPlayerGraphicSizeY - 10;
+
+		if (playerLeft > shotRight)
+		{
+			it++;
+			continue;
+		}
+		if (playerRight < shotLeft)
+		{
+			it++;
+			continue;
+		}
+		if (playerTop > shotBottom)
+		{
+			it++;
+			continue;
+		}
+		if (playerBottom < shotTop)
+		{
+			it++;
+			continue;
+		}
+		return true;
+	}
+	return false;
+}
+
 
 
 

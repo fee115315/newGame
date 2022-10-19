@@ -24,6 +24,7 @@
     <ProjectGuid>{62de2607-e9b7-4247-964f-6edb601ae394}</ProjectGuid>
     <RootNamespace>shot00</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Newkadai</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,10 +141,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Back.cpp" />
+    <ClCompile Include="End.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBase.cpp" />
     <ClCompile Include="Enemy_2.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="SceneMain.cpp" />
     <ClCompile Include="ShotBase.cpp" />
@@ -151,14 +154,18 @@
     <ClCompile Include="ShotFall.cpp" />
     <ClCompile Include="ShotBound.cpp" />
     <ClCompile Include="ShotP.cpp" />
+    <ClCompile Include="Title.cpp" />
+    <ClCompile Include="TitleBase.cpp" />
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Back.h" />
+    <ClInclude Include="End.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBase.h" />
     <ClInclude Include="Enemy_2.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="Manager.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="ShotBase.h" />
@@ -166,6 +173,8 @@
     <ClInclude Include="ShotFall.h" />
     <ClInclude Include="ShotBound.h" />
     <ClInclude Include="ShotP.h" />
+    <ClInclude Include="Title.h" />
+    <ClInclude Include="TitleBase.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

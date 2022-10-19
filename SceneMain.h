@@ -7,8 +7,9 @@
 #include "Enemy.h"
 #include "Enemy_2.h"
 #include "Back.h"
+#include "TitleBase.h"
 
-class SceneMain
+class SceneMain : public TitleBase
 {
 public:
 	SceneMain();
@@ -19,8 +20,10 @@ public:
 	// 終了処理
 	void end();
 
+	//// 毎フレームの処理
+	//void update();
 	// 毎フレームの処理
-	void update();
+	virtual TitleBase* update();
 	// 毎フレームの描画
 	void draw();
 
@@ -31,6 +34,7 @@ public:
 	bool createShotP(Vec2 pos);
 	// 当たり判定
 	virtual bool Col_Shot();
+	virtual bool Col_ShotE();
 	virtual bool Col_Enemy();
 	virtual bool Col_Enemy2();
 
@@ -64,6 +68,10 @@ private:
 	Enemy_2 m_enemy2;
 
 	int m_hTestSound;
+
+	// テキスト表示位置変更
+	int m_textPosX;
+	int m_textVecX;
 
 	bool m_isEnd;
 };

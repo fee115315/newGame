@@ -31,6 +31,12 @@
     <Filter Include="ヘッダー ファイル\Main">
       <UniqueIdentifier>{82de77d2-f458-463a-abff-77ae283d2bc7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Title">
+      <UniqueIdentifier>{3e74b4e8-a82b-44b5-8a4a-e5e85bc2914d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Title">
+      <UniqueIdentifier>{1399a40c-110a-4db9-a16c-9cd75a419d9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShotNormal.cpp">
@@ -72,6 +78,18 @@
     <ClCompile Include="Enemy_2.cpp">
       <Filter>ソース ファイル\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>ソース ファイル\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>ソース ファイル\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="End.cpp">
+      <Filter>ソース ファイル\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleBase.cpp">
+      <Filter>ソース ファイル\Title</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShotBase.h">
@@ -112,6 +130,18 @@
     </ClInclude>
     <ClInclude Include="Enemy_2.h">
       <Filter>ヘッダー ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>ヘッダー ファイル\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>ヘッダー ファイル\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="End.h">
+      <Filter>ヘッダー ファイル\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleBase.h">
+      <Filter>ヘッダー ファイル\Title</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
