@@ -28,15 +28,15 @@ namespace
 	// 敵2のサイズ
 	constexpr int kEnemyGraphic2SizeX = 60;
 	constexpr int kEnemyGraphic2SizeY = 60;
-	// ショットのサイズ
+	// ショットのサイズa
 	constexpr int kShotGraphicSizeX = 16.0f;
 	constexpr int kShotGraphicSizeY = 16.0f;
 	//自分のライフ
-	constexpr int playerLife = 10;
+	constexpr int playerLife = 30;
 	//敵のライフ
-	constexpr int enemyLife = 1;
+	constexpr int enemyLife = 10;
 	//敵２のライフ
-	constexpr int enemy2Life = 1;
+	constexpr int enemy2Life =10;
 }
 
 SceneMain::SceneMain()
