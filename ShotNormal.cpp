@@ -11,7 +11,7 @@ void ShotNormal::start(Vec2 pos,int vect)
 	ShotBase::start(pos);
 
 	m_vec.x = kShotSpeed * vect;
-	m_vec.y = 0.0f;
+	m_vec.y = 1.4f;
 }
 
 void ShotNormal::update()

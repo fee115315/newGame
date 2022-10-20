@@ -7,10 +7,12 @@
 
 namespace
 {
+	constexpr float kSizeX = 20.0f;
+	constexpr float kSizeY = 89.0f;
 	//キャラの速度
-	constexpr float kSpeedX = 2.1f;
+	constexpr float kSpeedX = 1.4f;
 	//ショットの発射間隔
-	constexpr float kShotInterval = 8.0f;
+	constexpr float kShotInterval = 6.0f;
 	//動く間隔
 	constexpr int kMoveTime = 50;
 }
@@ -47,9 +49,19 @@ void Enemy::update()
 
 	if (m_shotInterval <= 0)
 	{
-		if (m_pMain->createShotFall(getPos(),-1))
+		if (randShot > 50)
 		{
-			m_shotInterval = kShotInterval;
+			if (m_pMain->createShotFall(getPos(), -1))
+			{
+				m_shotInterval = kShotInterval;
+			}
+		}
+		else if (randShot > 20)
+		{
+			if (m_pMain->createShotNormal(getPos(),-1))
+			{
+				m_shotInterval = kShotInterval;
+			}
 		}
 	}
 

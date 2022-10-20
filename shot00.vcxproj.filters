@@ -48,9 +48,6 @@
     <ClCompile Include="ShotFall.cpp">
       <Filter>ソース ファイル\Shot</Filter>
     </ClCompile>
-    <ClCompile Include="ShotBound.cpp">
-      <Filter>ソース ファイル\Shot</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>ソース ファイル\Enemy</Filter>
     </ClCompile>
@@ -90,6 +87,9 @@
     <ClCompile Include="TitleBase.cpp">
       <Filter>ソース ファイル\Title</Filter>
     </ClCompile>
+    <ClCompile Include="Clear.cpp">
+      <Filter>ソース ファイル\Title</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShotBase.h">
@@ -99,9 +99,6 @@
       <Filter>ヘッダー ファイル\Shot</Filter>
     </ClInclude>
     <ClInclude Include="ShotFall.h">
-      <Filter>ヘッダー ファイル\Shot</Filter>
-    </ClInclude>
-    <ClInclude Include="ShotBound.h">
       <Filter>ヘッダー ファイル\Shot</Filter>
     </ClInclude>
     <ClInclude Include="Back.h">
@@ -141,6 +138,9 @@
       <Filter>ヘッダー ファイル\Title</Filter>
     </ClInclude>
     <ClInclude Include="TitleBase.h">
+      <Filter>ヘッダー ファイル\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Clear.h">
       <Filter>ヘッダー ファイル\Title</Filter>
     </ClInclude>
   </ItemGroup>

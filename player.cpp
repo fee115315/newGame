@@ -6,11 +6,14 @@
 
 namespace
 {
+	//キャラクターのサイズ
+	constexpr float pSizeX = 32.0f;
+	constexpr float pSizeY = 32.0f;
 	// X方向、Y方向の最大速度
 	constexpr float kSpeedMax = 8.0f;
 	constexpr float kAcc = 0.4f;
 	//ショットの発射間隔
-	constexpr float kShotInterval = 16;
+	constexpr float kShotInterval = 30;
 }
 
 Player::Player()
@@ -138,5 +141,8 @@ void Player::update()
 
 void Player::draw()
 {
-	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
+	if (!m_isDead)
+	{
+		DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
+	}
 }

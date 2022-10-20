@@ -7,10 +7,12 @@
 
 namespace
 {
+	constexpr float kSizeX = 89.0f;
+	constexpr float kSizeY = 89.0f;
 	//キャラの速度
 	constexpr float kSpeedX = 0.7f;
 	//ショットの発射間隔
-	constexpr float kShotInterval = 10.0f;
+	constexpr float kShotInterval = 7.0f;
 	//動く間隔
 	constexpr int kMoveTime = 180;
 }
@@ -19,7 +21,7 @@ void Enemy_2::init()
 {
 	//敵の初期化
 	m_pos.x = 550;			//敵のx座標
-	m_pos.y = 124;				//敵のy座標
+	m_pos.y = 120;				//敵のy座標
 
 	m_vec.x = kSpeedX;		//敵のx座標の移動の大きさ 
 
@@ -53,13 +55,13 @@ void Enemy_2::update()
 				m_shotInterval = kShotInterval;
 			}
 		}
-		else if (randShot > 30)
+		/*else if (randShot > 30)
 		{
 			if (m_pMain->createShotBound(getPos(),-1))
 			{
 				m_shotInterval = kShotInterval;
 			}
-		}
+		}*/
 	}
 
 	//左右の端に付くとまた動き出す

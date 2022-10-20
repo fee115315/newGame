@@ -5,7 +5,7 @@
 void Title::init()
 {
 	m_isEnd = false;
-	m_handle = LoadGraph("data/ana.png");
+	m_handle = LoadGraph("data/yonen.png");
 	x = 0;
 	y = 0;
 }
@@ -24,7 +24,6 @@ TitleBase* Title::update()
 void Title::draw()
 {
 	DrawGraph(x, y, m_handle, false);
-	DrawString(0, m_textPosY, "タイトル", GetColor(255, 255, 255));
-	DrawString(0, m_textPosY + 20, "ゲームスタート->Aボタン", GetColor(255, 255, 255));
-	DrawString(0, m_textPosY + 40, "オプション->STARTボタン", GetColor(255, 255, 255));
+	DrawString(280, 250, "大原ウォーズ", GetColor(255, 255, 122));
+	DrawString(0, 0, "ゲームスタート->Zボタン", GetColor(0, 0, 0));
 }

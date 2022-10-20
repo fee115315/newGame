@@ -12,7 +12,7 @@ public:
 
 	static constexpr int kPlayerGraphicSizeX = 32;
 	static constexpr int kPlayerGraphicSizeY = 32;
-
+	
 	// グラフィックデータ設定
 	void setHandle(int handle) { m_handle = handle; }
 
@@ -29,6 +29,8 @@ public:
 
 	// 情報の取得
 	Vec2 getPos() const { return m_pos; }
+	//死亡設定
+	void setDead(bool isDead) { m_isDead = isDead; }
 
 private:
 	int m_handle;
@@ -44,6 +46,8 @@ private:
 	Vec2 m_Graphsize;
 
 	int m_shotInterval;
+
+	bool m_isDead;
 
 	
 };

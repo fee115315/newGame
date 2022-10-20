@@ -30,11 +30,11 @@ public:
 	//’e‚Ì¶¬
 	bool createShotNormal(Vec2 pos,int vect);
 	bool createShotFall(Vec2 pos, int vect);
-	bool createShotBound(Vec2 pos, int vect);
 	bool createShotP(Vec2 pos);
 	// “–‚½‚è”»’è
 	virtual bool Col_Shot();
 	virtual bool Col_ShotE();
+	virtual bool Col_ShotE2();
 	virtual bool Col_Enemy();
 	virtual bool Col_Enemy2();
 
@@ -44,6 +44,7 @@ private:
 	int m_hPlayerGraphic;
 	int m_hShotGraphic;
 	int m_hbackGraphic;
+	int m_hEnemyUnchiDamageGraphic;
 	//”wŒi
 	Back m_back;
 	// ƒvƒŒƒCƒ„[
@@ -60,6 +61,10 @@ private:
 	int m_hShotEnemyGraphic2;
 	//player‚Ìƒ‰ƒCƒt
 	int m_life;
+	//“G‚Ìƒ‰ƒCƒt
+	int e_life;
+	//“G‚Q‚Ìƒ‰ƒCƒt
+	int e2_life;
 	//–³“G”»’è
 	int m_hitInvi;   
 	//“G
